@@ -2,7 +2,7 @@
 
 Execute main.py with all other files in same Directory.
 Modules to be used:
-> Pyttsx3
+> Pyttsx3__
 > SpeechRecognition
 > Wikipedia
 > selenium
