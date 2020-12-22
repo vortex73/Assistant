@@ -20,4 +20,4 @@
 > os<br />
 
 
-Made and conceptualized by ### Narayan and ### Pavel.  
+### Made and conceptualized by Narayan and Pavel.  
