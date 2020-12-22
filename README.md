@@ -1,8 +1,8 @@
-#TWO.PY---PROJECT FOR COMPUTER PROJECT
+# TWO.PY---PROJECT FOR COMPUTER PROJECT
 
 Execute main.py with all other files in same Directory.
 Modules to be used:
-          1>Pyttsx3
+> Pyttsx3
           2>SpeechRecognition
           3>Wikipedia
           4>selenium
