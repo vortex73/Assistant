@@ -1,6 +1,6 @@
 # TWO.PY---PROJECT FOR COMPUTER PROJECT
 
-## Execute main.py with all other files in same Directory. require "main.py"<br />
+## Execute main.py with all other files in same Directory. ./main.py<br />
 ### Modules to be used:
 > Pyttsx3<br />
 > SpeechRecognition<br />
