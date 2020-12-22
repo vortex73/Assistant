@@ -1,4 +1,4 @@
-# TWO.PY---PROJECT FOR COMPUTER PROJECT
+# TWO.PY---PROJECT FOR COMPUTER Assignment
 
 ## Execute main.py with all other files in same Directory.  <br />
 ### Modules to be used:
