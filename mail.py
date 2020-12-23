@@ -54,7 +54,7 @@ root.mainloop()
 
 ob=s.SMTP("smtp.gmail.com",587)
 ob.starttls()
-ob.login("pavelnarayan660@gmail.com","twopy.2020")
+ob.login("MailID","Password")
 
 
 message="Subject:{}\n\n{}".format(sa,b)
@@ -62,6 +62,6 @@ message="Subject:{}\n\n{}".format(sa,b)
 
 
 
-ob.sendmail("pavelnarayan660@gmail.com", m ,message)
+ob.sendmail("FROM MAIL ID", m ,message)
 print('Sent Successfully')
 ob.quit()
