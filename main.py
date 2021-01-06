@@ -4,7 +4,7 @@ import datetime
 import wikipedia 
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-import clock
+import clock #User defined
 import whatsapp
 import Wiki
 import contact
@@ -42,14 +42,16 @@ def Input():
     global query
     r = speech_recognition.Recognizer()
     with speech_recognition.Microphone() as source:
+        Goverbal("A moment of silence, please...")
+        r.adjust_for_ambient_noise(source)
+        Goverbal("Set minimum energy threshold to {}".format(r.energy_threshold))
         Goverbal("Listening...")
         r.pause_threshold = 1
-        r.energy_threshold = 350
         audio = r.listen(source)
 
     try:
         Goverbal("Recognizing...")    
-        query = r.recognize_google(audio)
+        query = r.recognize_google(audio, language='en-us')
         print(f"User said: {query}\n")
     
     except Exception as e:
@@ -69,6 +71,7 @@ if __name__ == "__main__":
         l=['wikipedia','whatsapp','the time','contact','alarm','shutdown','password','launch','open']
         if 'contact' in query:
             contact.con()
+
         if 'wikipedia' in query:
             Wiki.wiki(query)
         if 'whatsapp' in query:
