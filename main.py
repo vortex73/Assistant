@@ -5,17 +5,18 @@ import wikipedia
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
 import clock #User defined
-import whatsapp
-import Wiki
-import contact
-import srch
-import shutdown
-import alarm
-import launch
-import password
+import whatsapp#User defined
+import Wiki#User defined
+import mail#user defined
+import contact#User defined
+import srch#User defined
+import shutdown#User defined
+import alarm#User defined
+import launch#User defined
+import password#User defined
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-# print(voices[1].id)
+
 engine.setProperty('voice', voices[0].id)
 
 
@@ -43,15 +44,19 @@ def Input():
     r = speech_recognition.Recognizer()
     with speech_recognition.Microphone() as source:
         Goverbal("A moment of silence, please...")
+        print('A moment of silence please...')
         r.adjust_for_ambient_noise(source)
-        Goverbal("Set minimum energy threshold to {}".format(r.energy_threshold))
+        print("Set minimum energy threshold to {}".format(r.energy_threshold))
         Goverbal("Listening...")
+        print('Listening..')
         r.pause_threshold = 1
-        audio = r.listen(source)
+        #audio = r.listen(source)
 
     try:
         Goverbal("Recognizing...")    
-        query = r.recognize_google(audio, language='en-us')
+        print('Recognising...')
+        query=input()
+        #query = r.recognize_google(audio, language='en-us')
         print(f"User said: {query}\n")
     
     except Exception as e:
@@ -68,10 +73,11 @@ if __name__ == "__main__":
         query = Input().lower()
         if 'bye' in query:
             break
-        l=['wikipedia','whatsapp','the time','contact','alarm','shutdown','password','launch','open']
+        l=['wikipedia','whatsapp','the time','contact','mail','alarm','shutdown','password','launch','open']
         if 'contact' in query:
             contact.con()
-
+        if 'mail' in query:
+            mail.whole()
         if 'wikipedia' in query:
             Wiki.wiki(query)
         if 'whatsapp' in query:
