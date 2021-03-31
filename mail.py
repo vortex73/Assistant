@@ -1,67 +1,58 @@
 import smtplib as s
-import tkinter as tk
-global root
+from tkinter import *
+def sending():
 
-root=tk.Tk() 
+    add_info = add.get()
 
-root.geometry("600x400") 
-
-sub_var=tk.StringVar() 
-bod_var=tk.StringVar()
-mail_var=tk.StringVar()
-def submit():
-    global sa
-    global b
-    global m
+    body_info = body.get()
 
 
-    sa=sub_var.get()
-    b=bod_var.get()
-    m=mail_var.get()
+    sender_email = "pavelnarayan660@gmail.com" 
 
-    sub_var.set("")
-    bod_var.set("")
-    mail_var.set("")
+    sender_password = "twopy.2020"
 
-sub_label = tk.Label(root, text = 'Subject', font=('calibre',10, 'bold')) 
+    serv = s.SMTP('smtp.gmail.com',587)
 
-sub_entry = tk.Entry(root, textvariable = sub_var, font=('calibre',10,'normal'))
+    serv.starttls()
 
+    serv.login(sender_email,sender_password)
 
-bod_label = tk.Label(root, text = 'Body', font = ('calibre',10,'bold')) 
+    print("Successfully logged in")
 
+    serv.sendmail(sender_email,add_info,body_info)
 
-bod_entry = tk.Entry(root, textvariable = bod_var, font = ('calibre',10,'normal')) 
-
-mail_label = tk.Label(root, text = 'Email-id', font = ('calibre',10,'bold')) 
-
-
-mail_entry=tk.Entry(root, textvariable = mail_var, font = ('calibre',10,'normal')) 
-
-
-send_btn=tk.Button(root,text = 'Send', command= submit) 
-
-sub_label.grid(row=0,column=0) 
-sub_entry.grid(row=0,column=1) 
-bod_label.grid(row=1,column=0) 
-bod_entry.grid(row=1,column=1)
-mail_label.grid(row=2,column=0) 
-mail_entry.grid(row=2,column=1) 
-send_btn.grid(row=3,column=1) 
-root.mainloop()
+    print("Message sent and recieved by user")
+    add_entry.delete(0,END)
+    body_entry.delete(0,END)
 
 
 
-ob=s.SMTP("smtp.gmail.com",587)
-ob.starttls()
-ob.login("MailID","Password")
+def whole():
+    app = Tk()
+    app.title('Mail')
+    app.geometry("500x500")
+
+    add_field = Label(app,text="Email address :")
+    body_field = Label(app,text="Message :")
+
+    add_field.place(x=15,y=70)
+    body_field.place(x=15,y=140)
+    global add
+    global body
+    add = StringVar()
+    body = StringVar()
+    global add_entry
+    global body_entry
+
+    add_entry = Entry(textvariable=add,width="30")
+    body_entry = Entry(textvariable=body,width="30")
+
+    add_entry.place(x=15,y=100)
+    body_entry.place(x=15,y=180)
+
+    button = Button(app,text="Click to send message",command=sending ,width="30",height="2",bg="white")
+
+    button.place(x=15,y=220)
 
 
-message="Subject:{}\n\n{}".format(sa,b)
-
-
-
-
-ob.sendmail("FROM MAIL ID", m ,message)
-print('Sent Successfully')
-ob.quit()
+    mainloop()
