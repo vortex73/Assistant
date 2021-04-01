@@ -7,9 +7,9 @@ def sending():
     body_info = body.get()
 
 
-    sender_email = "pavelnarayan660@gmail.com" 
+    sender_email = "FROM_EMAIL_ID" 
 
-    sender_password = "twopy.2020"
+    sender_password = "PASSWORD"
 
     serv = s.SMTP('smtp.gmail.com',587)
 
